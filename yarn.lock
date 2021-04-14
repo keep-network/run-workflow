@@ -875,17 +875,9 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@keep-network/ci@github:keep-network/ci":
-  version "0.0.1"
-  resolved "git+ssh://git@github.com/keep-network/ci.git#c155bb6a000a2f85cc6ef915087cf60d80fffa86"
-  dependencies:
-    "@actions/core" "^1.2.6"
-    "@octokit/core" "^3.3.1"
-    jsonschema "^1.4.0"
-
 "@keep-network/ci@https://github.com/keep-network/ci#rfc-18/integration":
   version "0.0.1"
-  resolved "https://github.com/keep-network/ci#2736122f090a32f4b7ea58d2d28819caab9bc2d0"
+  resolved "https://github.com/keep-network/ci#6d0ae11efd9639077ee1694184f73c6cdcf600f7"
   dependencies:
     "@actions/core" "^1.2.6"
     "@octokit/core" "^3.3.1"
