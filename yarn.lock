@@ -877,7 +877,7 @@
 
 "@keep-network/ci@https://github.com/keep-network/ci#rfc-18/integration":
   version "0.0.1"
-  resolved "https://github.com/keep-network/ci#6d0ae11efd9639077ee1694184f73c6cdcf600f7"
+  resolved "https://github.com/keep-network/ci#7faddccf23c01556a1940cfd7c75bf6a9bf7fcb3"
   dependencies:
     "@actions/core" "^1.2.6"
     "@octokit/core" "^3.3.1"
