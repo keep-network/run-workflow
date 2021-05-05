@@ -9,7 +9,7 @@ async function run() {
   try {
     await invoke(environment, upstreamBuilds, ref)
   } catch (err) {
-    core.setFailed(err)
+    throw err
   }
 
   core.info(

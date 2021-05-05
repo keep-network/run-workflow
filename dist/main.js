@@ -26,7 +26,7 @@ eval("module.exports = __webpack_require__.p + \"c07070ba3085aa3cc8a8.json\";\n\
   \******************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const core = __webpack_require__(/*! @actions/core */ \"./node_modules/@actions/core/lib/core.js\");\n\nconst {\n  invoke\n} = __webpack_require__(/*! ./src/invoke.js */ \"./src/invoke.js\");\n\nasync function run() {\n  const environment = core.getInput(\"environment\");\n  const upstreamBuilds = core.getInput(\"upstream_builds\");\n  const ref = core.getInput(\"ref\");\n\n  try {\n    await invoke(environment, upstreamBuilds, ref);\n  } catch (err) {\n    core.setFailed(err);\n  }\n\n  core.info(`dispatched run for environment: ${environment} with upstream builds: ${upstreamBuilds} and ref: ${ref}`);\n}\n\nrun().catch(core.setFailed);\n\n//# sourceURL=webpack://@keep-network/run-workflow/./index.js?");
+eval("const core = __webpack_require__(/*! @actions/core */ \"./node_modules/@actions/core/lib/core.js\");\n\nconst {\n  invoke\n} = __webpack_require__(/*! ./src/invoke.js */ \"./src/invoke.js\");\n\nasync function run() {\n  const environment = core.getInput(\"environment\");\n  const upstreamBuilds = core.getInput(\"upstream_builds\");\n  const ref = core.getInput(\"ref\");\n\n  try {\n    await invoke(environment, upstreamBuilds, ref);\n  } catch (err) {\n    throw err;\n  }\n\n  core.info(`dispatched run for environment: ${environment} with upstream builds: ${upstreamBuilds} and ref: ${ref}`);\n}\n\nrun().catch(core.setFailed);\n\n//# sourceURL=webpack://@keep-network/run-workflow/./index.js?");
 
 /***/ }),
 
