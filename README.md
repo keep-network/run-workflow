@@ -56,6 +56,8 @@ on:
 
 Install dependencies: `yarn install`
 
+Upgrade dependency to `@keep-network/ci` package: `yarn upgrade @keep-network/ci`.
+
 Fix linting: `yarn run lint:fix`
 
 It's required to commit the content of `dist` directory after introducing changes
