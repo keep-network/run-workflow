@@ -13,7 +13,12 @@ async function invoke(environment, upstreamBuilds, ref) {
     core.info(
       `upstream builds not provided; invoking default module: ${module.id}`
     )
-    await module.invoke(environment, upstreamBuilds, ref)
+
+    try {
+      await module.invoke(environment, upstreamBuilds, ref)
+    } catch (err) {
+      throw new Error(`failed to invoke default module: ${err.message}`)
+    }
   } else {
     const { isValid, errors } = validateUpstreamBuilds(upstreamBuilds)
 
@@ -31,7 +36,18 @@ async function invoke(environment, upstreamBuilds, ref) {
 
     const latestBuild = upstreamBuilds.slice(-1)[0]
 
-    await invokeDownstream(latestBuild.module, environment, upstreamBuilds, ref)
+    try {
+      await invokeDownstream(
+        latestBuild.module,
+        environment,
+        upstreamBuilds,
+        ref
+      )
+    } catch (err) {
+      throw new Error(
+        `failed to invoke downstream for ${latestBuild.module}: ${err.message}`
+      )
+    }
   }
 }
 
@@ -58,7 +74,13 @@ async function invokeDownstream(
   core.info(`invoking downstream builds for module ${moduleID}`)
   for (const downstreamModuleID of downstream) {
     const downstreamModule = new Module(downstreamModuleID)
-    downstreamModule.invoke(environment, upstreamBuilds, ref)
+    try {
+      await downstreamModule.invoke(environment, upstreamBuilds, ref)
+    } catch (err) {
+      throw new Error(
+        `failed to invoke downstream module ${downstreamModuleID}: ${err.message}`
+      )
+    }
   }
 }
 
