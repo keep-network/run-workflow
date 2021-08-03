@@ -1,5 +1,7 @@
 # Run GitHub Actions Workflow Action
 
+:warning: **This project is DEPRECATED.** The action has been moved to [the keep-network/ci repository](https://github.com/keep-network/ci/tree/main/actions/run-workflow)!
+
 This is a GitHub Action that runs an external workflow.
 
 ## Action Inputs
